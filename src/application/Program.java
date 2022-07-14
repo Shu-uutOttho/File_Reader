@@ -29,7 +29,7 @@ public class Program {
 		File sourceFile = new File(sourceFileStr);
 		String sourceFouldeStr = sourceFile.getParent();
 
-		boolean sucess = new File(sourceFouldeStr + "//out").mkdir();
+		boolean success = new File(sourceFouldeStr + "//out").mkdir();
 		String targetFileStr = sourceFouldeStr + "//out/sumary.csv";
 
 		try (BufferedReader br = new BufferedReader(new FileReader(sourceFileStr))) {
