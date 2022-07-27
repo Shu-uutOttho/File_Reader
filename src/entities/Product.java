@@ -42,6 +42,11 @@ public class Product {
 	public double total() {
 		return price * quantity;
 	}
+
+	@Override
+	public String toString() {
+		return name + ", " + String.format("%.2f" , total()) + ", " + quantity;
+	}
 	
 
 }

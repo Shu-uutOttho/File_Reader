@@ -29,8 +29,8 @@ public class Program {
 		File sourceFile = new File(sourceFileStr);
 		String sourceFouldeStr = sourceFile.getParent();
 
-		boolean success = new File(sourceFouldeStr + "//out").mkdir();
-		String targetFileStr = sourceFouldeStr + "//out/sumary.csv";
+		boolean success = new File(sourceFouldeStr + "\\out").mkdir();
+		String targetFileStr = sourceFouldeStr + "\\out\\sumary.csv";
 
 		try (BufferedReader br = new BufferedReader(new FileReader(sourceFileStr))) {
 
@@ -50,15 +50,17 @@ public class Program {
 			try (BufferedWriter bw = new BufferedWriter(new FileWriter(targetFileStr))) {
 
 				for (Product item : list) {
-					bw.write(item.getName() + "," + String.format("%.2f", item.total()));
+					bw.write(item.getName() + ", " + String.format("%.2f", item.total()));
 					bw.newLine();
+					System.out.println(item.toString());
 				}
+				
 				System.out.println(targetFileStr + " CREATED!");
 			} catch (IOException e) {
 				System.out.println("Error writting File" + e.getMessage());
 			}
 
-		}catch (IOException e) {
+		} catch (IOException e) {
 			System.out.println("Error Reading File" + e.getMessage());
 		}
 		sc.close();
